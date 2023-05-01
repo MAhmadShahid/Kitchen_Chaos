@@ -3,24 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Lumin;
 
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
     public static Player Instance { get; private set; }
+    public InputAction m_testInputAction;
+    // FIELDS
 
-    // fields
-    [SerializeField] private float m_moveSpeed = 7f;
+    // input fields
     [SerializeField] private GameInput m_gameInput;
+
+    // movement fields
+    [SerializeField] private float m_moveSpeed = 7f;
+    private bool m_isPlayerWalking = false;
+
+    // interaction fields
     [SerializeField] private LayerMask countersLayerMask;
     [SerializeField] private Transform m_kitchenObjectHoldPoint;
-
-    private bool m_isPlayerWalking = false;
     private Vector3 m_lastInteractionDirection;
     private BaseCounter m_selectedCounter;
     private KitchenObject m_kitchenObject;
 
-    // event
+    // EVENTS
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {

@@ -5,8 +5,8 @@ using UnityEngine;
 public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
     private KitchenObject m_kitchenObject;
-
     [SerializeField] private Transform m_counterTopPoint;
+
     public virtual void Interact(Player player) 
     {
         Debug.LogError("BaseCounter.Interact() not overrided!");

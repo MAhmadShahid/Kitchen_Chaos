@@ -9,10 +9,6 @@ public class KitchenObject : MonoBehaviour
     [SerializeField] private KitchenObjects_SO m_kitchenObject;
     private IKitchenObjectParent m_kitchenObjectParent;
 
-    public KitchenObjects_SO GetKitchenObjectSO()
-    {
-        return m_kitchenObject;
-    } 
 
     public void SetKitchenObjectParent(IKitchenObjectParent p_kitchenObjectParent)
     {
@@ -33,7 +29,7 @@ public class KitchenObject : MonoBehaviour
         transform.localPosition = Vector3.zero;
     }
 
-    public KitchenObjects_SO GetKitchenObjectsSO()
+    public KitchenObjects_SO GetKitchenObjectSO()
     {
         return m_kitchenObject;
     }
