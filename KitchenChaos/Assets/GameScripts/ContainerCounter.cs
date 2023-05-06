@@ -14,10 +14,10 @@ public class ContainerCounter : BaseCounter
     }
     public override void Interact(Player player)
     {
+        // if player already holds an object, don't spawn another one
         if (player.HasKitchenObject()) return;
 
-        Transform kitchenObjectTransform = Instantiate(m_kitchenObjectSO.m_prefab);
-        kitchenObjectTransform.GetComponent<KitchenObject>().SetKitchenObjectParent(player);
+        KitchenObject.SpawnKitchenObject(m_kitchenObjectSO, player);
 
         m_OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
     }

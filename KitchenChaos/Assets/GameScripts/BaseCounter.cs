@@ -12,6 +12,11 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
         Debug.LogError("BaseCounter.Interact() not overrided!");
     }
 
+    public virtual void InteractAlternate(Player player)
+    {
+        Debug.LogError("BaseCounter.InteractAlternate() not overrided!");
+    }
+
     public void SetKitchenObject(KitchenObject p_kitchenObject)
     {
         m_kitchenObject = p_kitchenObject;

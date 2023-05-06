@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {
+
+    [SerializeField] private KitchenObjects_SO m_kitchenObjectSO;
     public override void Interact(Player player)
     {
         // if player wants to pick up object from the counter
@@ -18,6 +20,17 @@ public class CuttingCounter : BaseCounter
             player.GetKitchenObject().SetKitchenObjectParent(this);
             Debug.Log($"Player Player The Kitchen Object: {GetKitchenObject().GetKitchenObjectSO().m_objectName} on counter");
         }
+    }
+
+    public override void InteractAlternate(Player player)
+    {
+        // if no kitchen object no need to cut
+        if (!HasKitchenObject())
+            return;
+
+        // else if kitchen object is available, cut it
+        GetKitchenObject().DestroySelf();
+        KitchenObject.SpawnKitchenObject(m_kitchenObjectSO, this);
     }
 }
 

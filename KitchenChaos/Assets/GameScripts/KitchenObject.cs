@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class KitchenObject : MonoBehaviour
         // also update parent 
         transform.parent = m_kitchenObjectParent.GetKitchenObjectFollowTransform();
         transform.localPosition = Vector3.zero;
+
+        Debug.Log("Kitchen Object Parent: Changed Successfully");
     }
 
     public KitchenObjects_SO GetKitchenObjectSO()
@@ -37,5 +40,20 @@ public class KitchenObject : MonoBehaviour
     public IKitchenObjectParent GetKitchenObjectParent()
     {
         return m_kitchenObjectParent;
+    }
+
+    public void DestroySelf()
+    {
+        m_kitchenObjectParent.ClearKitchenObject();
+        Destroy(gameObject);
+    }
+
+    public static KitchenObject SpawnKitchenObject(KitchenObjects_SO p_kitchenObjectSO, IKitchenObjectParent p_kitchenObjectParent)
+    {
+        Transform spawnedKitchenObjectTransform = Instantiate(p_kitchenObjectSO.m_prefab);
+        KitchenObject spawnedKitchenObject = spawnedKitchenObjectTransform.GetComponent<KitchenObject>();
+        spawnedKitchenObject.SetKitchenObjectParent(p_kitchenObjectParent);
+
+        return spawnedKitchenObject;
     }
 }

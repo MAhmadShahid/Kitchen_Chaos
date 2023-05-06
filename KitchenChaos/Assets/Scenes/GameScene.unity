@@ -543,10 +543,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_testInputAction:
-    m_Name: 
+    m_Name: Test Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 
+    m_Id: a59feb7d-c1fc-4096-9f27-13e77561371d
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -1161,6 +1161,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3503253039266051886, guid: 90b9145c281828e4686a34fb7747318b,
+        type: 3}
+      propertyPath: m_kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 722f7973d2d5b444ab4c6fc117792b06,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90b9145c281828e4686a34fb7747318b, type: 3}
 --- !u!1 &832575517
